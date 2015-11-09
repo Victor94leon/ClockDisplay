@@ -43,4 +43,20 @@ public class ClockDisplay
         }
     }
     
+     /**
+     * Avanza un minuto la hora del reloj.
+     */
+    public void timeTick ()
+    {
+        minutos = (minutos + 1);
+        if (minutos > 59){
+            horas = horas + 1;
+            minutos = 0;
+        }
+        
+        if (horas > 23) {
+            horas = 0;
+        }
+    }
+    
 }
