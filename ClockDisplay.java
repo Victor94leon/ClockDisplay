@@ -28,5 +28,19 @@ public class ClockDisplay
         horas = 0;
         minutos = 0;
     }
-
+    
+     /**
+     * Introducir un una hora desde las 00:00 hasta las 23:59 (PM).
+     */
+    public void setTime (int hora,int min)
+    {
+        if (hora>=0 & hora<=23 & minutos >=0 & minutos<=59){
+            horas = hora;
+            minutos = min;
+        }
+        else {
+            System.out.println("La hora no es correcta");
+        }
+    }
+    
 }
