@@ -59,4 +59,25 @@ public class ClockDisplay
         }
     }
     
+    /**
+     * Devuelve una cadena de 5 caracteres mostrando la hora separada de los minutos mediante dos puntos.
+     */
+    public String getTime ()
+    {
+        String horaDelReloj;
+        if (horas<10 & minutos<10) {
+            horaDelReloj = "0" + horas + ":" + "0" + minutos;
+        }
+        else if (horas<10 & minutos>=10) {
+            horaDelReloj = "0" + horas + ":" + minutos; 
+        }
+        else if (horas>=10 & minutos<10) {
+            horaDelReloj = horas + ":" + "0" + minutos;
+        }
+        else {
+            horaDelReloj = horas + ":" + minutos;
+        }
+        return horaDelReloj;
+    }
+    
 }
