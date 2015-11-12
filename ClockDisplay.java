@@ -34,7 +34,7 @@ public class ClockDisplay
      */
     public void setTime (int hora,int min)
     {
-        if (hora>=0 & hora<=23 & minutos >=0 & minutos<=59){
+        if (hora >= 0 && hora <= 23 && min >= 0 && min <= 59){
             horas = hora;
             minutos = min;
         }
@@ -46,18 +46,17 @@ public class ClockDisplay
      /**
      * Avanza un minuto la hora del reloj.
      */
-    public void timeTick ()
-    {
-        minutos = (minutos + 1);
-        if (minutos > 59){
-            horas = horas + 1;
-            minutos = 0;
-        }
-        
-        if (horas > 23) {
-            horas = 0;
-        }
-    }
+    public void timeTick()
+	{
+		minutos =  minutos + 1;
+		if(minutos == 60){
+			horas++;
+			minutos = 0;
+			if(horas == 24){
+				horas = 0;
+			}
+		} 
+	}
     
     /**
      * Devuelve una cadena de 5 caracteres mostrando la hora separada de los minutos mediante dos puntos.
@@ -65,13 +64,13 @@ public class ClockDisplay
     public String getTime ()
     {
         String horaDelReloj;
-        if (horas<10 & minutos<10) {
+        if (horas < 10 && minutos < 10) {
             horaDelReloj = "0" + horas + ":" + "0" + minutos;
         }
-        else if (horas<10 & minutos>=10) {
+        else if (horas < 10) {
             horaDelReloj = "0" + horas + ":" + minutos; 
         }
-        else if (horas>=10 & minutos<10) {
+        else if (minutos <10) {
             horaDelReloj = horas + ":" + "0" + minutos;
         }
         else {
